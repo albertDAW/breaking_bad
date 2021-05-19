@@ -1,33 +1,41 @@
 import React, { } from "react";
 import { Card, makeStyles } from "@material-ui/core";
+import nombres from "../resources/nombres.png";
 const useStyles = makeStyles({
     cardMain: {
-        display: 'flex'
+        backgroundSize: 'cover',
+        height: '63vh',
     },
-    item: {
-        flex: 1,
-        height: 400
-    },
-    foto: {
-        minWidth: '100%',
-        maxWidth: '100%',
+    etiqueta: {
+        backgroundSize: 'initial',
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: 'bottom',
+        backgroundPositionX: 'right',
         height: '100%',
-        marginBottom: -4
+        width: '100%',
+        position: 'relative'
+    },
+    span: {
+        color: 'white',
+        fontSize: '1.5em',
+        position: 'absolute',
+        bottom: '4%',
+        right: '1vh',
+        fontFamily: 'sans-serif'
     }
 });
 
 function CardCharacter(props) {
     const classes = useStyles();
     return (
-        <Card onClick={props.onNavigate} className={classes.cardMain}>
-            <div className={classes.item}>
-                <img alt={`foto character ${props.character.name}`} className={classes.foto} src={props.character.img} />
+        <>
+            <Card style={{ backgroundImage: `url(${props.character.img})` }} onClick={props.onNavigate} className={classes.cardMain}>
+                <div className={classes.etiqueta} style={{ backgroundImage: `url(${nombres})` }}>
+                    <span className={classes.span}>{props.character.name}</span>
+                </div>
+            </Card>
 
-            </div>
-            <div className={classes.item}>
-                {props.character.name}
-            </div>
-        </Card>
+        </>
     )
 }
 
