@@ -1,5 +1,4 @@
-# Getting Started with Create React App
-Proyecto api Breaking Bad
+# Proyecto api Breaking Bad
 
 ## Visual
 En este apartado haremos un pequeño resumen de las pantallas de las que consta el proyecto, y de que se puede hacer en cada una de ellas
