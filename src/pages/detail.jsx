@@ -51,7 +51,6 @@ function Detail() {
     const [loading, setLoading] = useState(false);
     const [quote, setQuote] = useState('');
     const handleLoadCharacter = useCallback(async () => {
-        debugger;
         setLoading(true);
         var result = await getCharacterById(id);
         var quoteRandom = await getCharacterQuote(result?.name);
@@ -109,6 +108,22 @@ function Detail() {
                                 <span>{t('character:actor')}:</span>
                                 <b>&nbsp;{character.portrayed}</b>
                             </div>
+                            {
+                                character.occupation && character.occupation.length > 0 &&
+                                <div className={classes.quoteRow}>
+                                    <span>{t('character:profesion')}:</span>
+                                    <b>&nbsp;{character.occupation.toString()}</b>
+                                </div>
+                            }
+                            {
+                                character.appearance && character.appearance.length > 0 &&
+                                <div className={classes.quoteRow}>
+                                    <span>{t('character:aparicion')}:</span>
+                                    {character.appearance.map((x, i) => (
+                                        <b key={`aparicion_${i}`}>&nbsp;{`${t('global:temporada')} ${x}`}</b>
+                                    ))}
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
