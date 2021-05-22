@@ -28,6 +28,5 @@ Esta aplicación usa un gateway para enlazar la api con el front. Esto se hace p
 - react-router: Libreria escogida para encargarse del routing de la aplicación
 
 ### Apartados no resueltos
-En esta primera fase, no se ha realizado un diseño responsive.
-En esta fase no se han incluido test
+En esta primera fase, no se ha realizado un diseño responsive y tampoco se han incluido test
 
