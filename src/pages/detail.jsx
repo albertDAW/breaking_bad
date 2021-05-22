@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         flex: 0.65
     },
     img: {
-        maxHeight: 700
+        maxHeight: 650
     },
     containerImage: {
         flex: 0.35,
