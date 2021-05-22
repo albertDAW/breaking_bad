@@ -1,5 +1,5 @@
 import { CircularProgress, Grid, makeStyles } from "@material-ui/core";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useLayoutEffect } from "react";
 import { useHistory } from "react-router";
 import CardCharacter from "../components/card-characters";
 import Searcher from "../components/searcher";
@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         left: '50%',
         top: '40%',
     },
+    main: {
+        padding: 15,
+    }
 });
 
 function Characters() {
@@ -26,9 +29,9 @@ function Characters() {
         setLoading(false);
     }, [])
 
-    const handleDetail = useCallback((x)=>{
+    const handleDetail = useCallback((x) => {
         history.push('/' + x);
-    },[history]);
+    }, [history]);
 
     const handleFilter = useCallback(async () => {
         var result = await getCharactersFiltereds(nameFilters);
@@ -43,14 +46,14 @@ function Characters() {
         handleFilter();
     }, [nameFilters, handleFilter])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         handleLoadCharacters();
     }, [handleLoadCharacters])
     return (
         <>
             { !loading ?
-                <div>
-                    <Searcher nameFilters={nameFilters} onChange={handleSetName}/>
+                <div className={classes.main}>
+                    <Searcher nameFilters={nameFilters} onChange={handleSetName} />
                     <Grid container spacing={3}>
                         {
                             characters.map((x, i) => (

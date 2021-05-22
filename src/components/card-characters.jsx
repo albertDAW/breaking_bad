@@ -1,6 +1,7 @@
 import React, { } from "react";
 import { Card, makeStyles } from "@material-ui/core";
 import nombres from "../resources/nombres.png";
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 const useStyles = makeStyles({
     cardMain: {
         backgroundSize: 'cover',
@@ -22,6 +23,13 @@ const useStyles = makeStyles({
         bottom: '4%',
         right: '1vh',
         fontFamily: 'sans-serif'
+    },
+    icon: {
+        color: 'white',
+        fontSize: '2.5em',
+        position: 'absolute',
+        right: '1vh',
+        top: '1vh'
     }
 });
 
@@ -31,6 +39,7 @@ function CardCharacter(props) {
         <>
             <Card style={{ backgroundImage: `url(${props.character.img})` }} onClick={props.onNavigate} className={classes.cardMain}>
                 <div className={classes.etiqueta} style={{ backgroundImage: `url(${nombres})` }}>
+                    <AddCircleOutlineOutlinedIcon className={classes.icon} />
                     <span className={classes.span}>{props.character.name}</span>
                 </div>
             </Card>
